@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-
+test
 
 # In[8]:
 
@@ -57,20 +57,20 @@ plt.savefig('Age Distribution ~ Age Group.pdf') # Save plot to PDF
 
 # Combined Panel Plot ===============================================================
 fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(12, 4)) # Create subplots -> 1 row, 3 columns
-age_graph = age.plot(age['Unnamed: 0'], kind = 'bar', 
+age_graph = age.plot(age['Unnamed: 0'], kind = 'bar',
                      rot = 0, color = 'black', legend = False, ax=axes[0], title = 'A',
                      fontsize = 10) # Create bar plot for 1st subplot
 age_graph.set_ylim([0,40])
 age_graph.set_xlabel('Age Group')
 age_graph.set_ylabel('Age Distribution')
-mortality_graph = mortality.plot(mortality[0], 
-                                 kind = 'bar', rot = 0, color = 'black', 
+mortality_graph = mortality.plot(mortality[0],
+                                 kind = 'bar', rot = 0, color = 'black',
                                  legend = False, ax=axes[1], title = 'B',
                                  fontsize = 10) # Create bar plot for 2nd subplot
 mortality_graph.set_ylim([0,80])
 mortality_graph.set_xlabel('Age Group')
 mortality_graph.set_ylabel('Mortality Rate per 1,000 population')
-life_expectancy_graph = life_expectancy.plot(life_expectancy[0], kind = 'bar', rot = 0, 
+life_expectancy_graph = life_expectancy.plot(life_expectancy[0], kind = 'bar', rot = 0,
                                              color = 'black', legend = False,
                                              ax=axes[2], title = 'C', fontsize = 10) # Create bar plot for 3rd subplot
 life_expectancy_graph.set_ylim([0,80])
@@ -78,4 +78,3 @@ life_expectancy_graph.set_xlabel('Age Group')
 life_expectancy_graph.set_ylabel('Life Expectancy')
 plt.tight_layout() # Ensure tight layout so labels are not cut off
 plt.savefig('Population.pdf') # Save plot to PDF
-
