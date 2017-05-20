@@ -12,6 +12,7 @@ import matplotlib as mpl
 
 # In[8]:
 
+
 # Load data/Read in CSV files ===============================================================
 age = pd.read_csv('Data - Age Distribution.csv')
 mortality = pd.read_csv('Data - Mortality Rates.csv', header = None)
