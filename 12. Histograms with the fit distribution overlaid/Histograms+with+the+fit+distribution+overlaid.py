@@ -4,7 +4,6 @@
 # In[1]:
 
 # Load required modules ===============================================================
-get_ipython().magic(u'matplotlib inline')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -27,4 +26,3 @@ plt.xlabel('Value')
 plt.ylabel('Probability')
 plt.tight_layout() # Ensure tight layout so legend/labels are not cut off
 plt.savefig('histogram.pdf') # Save plot to PDF
-

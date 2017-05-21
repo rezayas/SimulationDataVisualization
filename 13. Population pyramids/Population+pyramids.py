@@ -4,7 +4,6 @@
 # In[1]:
 
 # Load required modules ===============================================================
-get_ipython().magic(u'matplotlib inline')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -25,7 +24,7 @@ df= pd.read_csv('****Data****.csv')
 mpl.style.use('classic') # Use classic MPL layout
 fig, ax = plt.subplots(ncols=2, sharey=True) # Create 2 subplots that share a common y-axis
 # Create subplots with y-axis values to be the number of categories
-ax[0].barh(range(0,len(df['AGE']),1), df['MALE'], color='blue', 
+ax[0].barh(range(0,len(df['AGE']),1), df['MALE'], color='blue',
           align = 'center')
 ax[1].barh(range(0,len(df['AGE']),1), df['FEMALE'], color='red',
           align = 'center')
@@ -42,4 +41,3 @@ ax[1].set_xticklabels(ax_1_labels, fontsize = 8)
 plt.suptitle('Population Pyramid\nYale School of Public Health') # Create title in between subplots
 plt.tight_layout() # Ensure tight layout so legend/labels are not cut off
 plt.savefig('population_pyramid.pdf') # Save plot to PDF
-

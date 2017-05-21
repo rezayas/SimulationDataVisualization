@@ -4,7 +4,6 @@
 # In[1]:
 
 # Load required modules ===============================================================
-get_ipython().magic(u'matplotlib inline')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -24,13 +23,13 @@ clinical = pd.read_csv('Data - Distribution of Clinical Men.csv')
 
 # Assuming Strain Replacement Bar Plot ===============================================================
 mpl.style.use('classic') # Use classic MPL layout
-plot = worse.iloc[:,[0,3,1,9,7,5]].plot(kind='barh', stacked=True, 
+plot = worse.iloc[:,[0,3,1,9,7,5]].plot(kind='barh', stacked=True,
                                  color = ['#c10d0d', '#4f42dd', '#f7950c', '#9b14bc', '#34af18']) # plot bar plot
 plot.set_yticklabels(worse['Unnamed: 0']) # Set labels to be categories
 plot.set_xlabel('Number of Vaccines Used per Year (Thousands)')
 handles, labels = plot.get_legend_handles_labels() # get labels of original legend
 plot.legend([handles[1], handles[0], handles[4], handles[3], handles[2]],
-           [labels[1], labels[0], labels[4], labels[3], labels[2]], 
+           [labels[1], labels[0], labels[4], labels[3], labels[2]],
             loc='upper left', bbox_to_anchor=(1, 1),prop={'size':10}) # reorder the labels
 plot.set_title('Assuming Strain Replacement')
 plt.tight_layout() # Ensure tight layout so legend/labels are not cut off
@@ -40,7 +39,7 @@ plt.savefig('Results - Vaccines Required ~ Worse.pdf', bbox_inches="tight") # Sa
 # In[4]:
 
 # Assuming No Strain Replacement Bar Plot (Modified code from above) ===============================================================
-plot = best.iloc[:,[0,3,1,9,7,5]].plot(kind='barh', stacked=True, 
+plot = best.iloc[:,[0,3,1,9,7,5]].plot(kind='barh', stacked=True,
                                  color = ['#c10d0d', '#4f42dd', '#f7950c', '#9b14bc', '#34af18'])
 plot.set_yticklabels(best['Unnamed: 0'])
 plot.set_xlabel('Number of Vaccines Used per Year (Thousands)')
@@ -57,14 +56,14 @@ plt.savefig('Results - Vaccines Required ~ Best.pdf', bbox_inches="tight")
 
 # Both Bar Plots in One Figure ===============================================================
 fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(12, 4)) # Initialise figure with 1 row and 2 columns
-plot = worse.iloc[:,[0,3,1,9,7,5]].plot(kind='barh', stacked=True, 
+plot = worse.iloc[:,[0,3,1,9,7,5]].plot(kind='barh', stacked=True,
                                  color = ['#c10d0d', '#4f42dd', '#f7950c', '#9b14bc', '#34af18'], ax=axes[0],
                                        legend = None) # Plot the first subplot
 plot.set_yticklabels(worse['Unnamed: 0'])
 plot.set_xlabel('Number of Vaccines Used per Year (Thousands)')
 plot.set_title('Assuming Strain Replacement')
-plot = best.iloc[:,[0,3,1,9,7,5]].plot(kind='barh', stacked=True, 
-                                 color = ['#c10d0d', '#4f42dd', '#f7950c', '#9b14bc', '#34af18'], 
+plot = best.iloc[:,[0,3,1,9,7,5]].plot(kind='barh', stacked=True,
+                                 color = ['#c10d0d', '#4f42dd', '#f7950c', '#9b14bc', '#34af18'],
                                        ax=axes[1]) # Plot the second subplot
 plot.set_yticklabels([]) # Remove tick labels as it will share tick labels with the other subplot
 plot.set_xlabel('Number of Vaccines Used per Year (Thousands)')
@@ -91,4 +90,3 @@ plot.legend([handles[2], handles[1], handles[0]],
            loc='upper left', bbox_to_anchor=(1, 1),prop={'size':10}) # Reorder the legend handles
 plt.tight_layout()
 plt.savefig('Data.pdf', bbox_inches="tight")
-

@@ -4,7 +4,6 @@
 # In[1]:
 
 # Load required modules ===============================================================
-get_ipython().magic(u'matplotlib inline')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -29,4 +28,3 @@ fig.add_subplot(223)
 fig.add_subplot(224)
 plt.tight_layout() # Ensure tight layout so legend/labels are not cut off
 plt.savefig("filename.pdf") # Save plot to PDF
-

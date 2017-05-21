@@ -4,7 +4,6 @@
 # In[1]:
 
 # Load required modules ===============================================================
-get_ipython().magic(u'matplotlib inline')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -43,14 +42,14 @@ best.base_prime = best.base_prime.dropna(axis=0, how='any')
 # With Strain Replacement Line Plot ===============================================================
 mpl.style.use('classic') # Use classic MPL layout
 # Make the line plots
-worse.prevention_1.graph = plt.plot(worse.prevention_1['WTP'], 
-                                    worse.prevention_1['Prevention 1'], 
+worse.prevention_1.graph = plt.plot(worse.prevention_1['WTP'],
+                                    worse.prevention_1['Prevention 1'],
                                     color = 'green', linewidth = 3)
-worse.prevention_2.graph = plt.plot(worse.prevention_2['WTP'], 
-                                    worse.prevention_2['Prevention 2'], 
+worse.prevention_2.graph = plt.plot(worse.prevention_2['WTP'],
+                                    worse.prevention_2['Prevention 2'],
                                     color = 'blue', linewidth = 3)
-worse.base_prime.graph = plt.plot(worse.base_prime['WTP'], 
-                                  worse.base_prime['Base Prime'], 
+worse.base_prime.graph = plt.plot(worse.base_prime['WTP'],
+                                  worse.base_prime['Base Prime'],
                                   color = 'red', linewidth = 3)
 plt.xticks([0,660,1000,2000])
 plt.xlim([-0,2000])
@@ -65,7 +64,7 @@ plt.title('Assuming Strain Replacement')
 red = mlines.Line2D([], [], color='red', ls='-')
 green = mlines.Line2D([], [], color='green', ls='-')
 blue = mlines.Line2D([], [], color='blue', ls='-')
-plt.legend((red, green, blue), ('Base Prime', 'Prevention 1', 'Prevention 2',), 
+plt.legend((red, green, blue), ('Base Prime', 'Prevention 1', 'Prevention 2',),
            loc = 4, prop={'size':7})
 plt.tight_layout() # Ensure tight layout so legend/labels are not cut off
 plt.savefig('Economic Evaluation (PS $2, PC $10) ~ Worse.pdf') # Save plot to PDF
@@ -74,11 +73,11 @@ plt.savefig('Economic Evaluation (PS $2, PC $10) ~ Worse.pdf') # Save plot to PD
 # In[5]:
 
 # With No Strain Replacement Line Plot (Modified from above) ===============================================================
-best.prevention_1.graph = plt.plot(best.prevention_1['WTP'], 
+best.prevention_1.graph = plt.plot(best.prevention_1['WTP'],
                                    best.prevention_1['Prevention 1'], color = 'green', linewidth = 3)
-best.prevention_2.graph = plt.plot(best.prevention_2['WTP'], 
+best.prevention_2.graph = plt.plot(best.prevention_2['WTP'],
                                    best.prevention_2['Prevention 2'], color = 'blue', linewidth = 3)
-best.base_prime.graph = plt.plot(best.base_prime['WTP'], 
+best.base_prime.graph = plt.plot(best.base_prime['WTP'],
                                  best.base_prime['Base Prime'], color = 'red', linewidth = 3)
 plt.xticks([0,660,1000,2000])
 plt.xlim([-0,2000])
@@ -95,4 +94,3 @@ blue = mlines.Line2D([], [], color='blue', ls='-')
 plt.legend((red, green, blue), ('Base Prime', 'Prevention 1', 'Prevention 2',), loc = 4, prop={'size':7})
 plt.tight_layout()
 plt.savefig('Economic Evaluation (PS $2, PC $10) ~ Best.pdf')
-

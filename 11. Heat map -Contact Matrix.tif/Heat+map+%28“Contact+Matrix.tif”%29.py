@@ -4,7 +4,6 @@
 # In[1]:
 
 # Load required modules ===============================================================
-get_ipython().magic(u'matplotlib inline')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -35,4 +34,3 @@ plt.ylabel('Age Group')
 plt.title('Contact Matrix')
 plt.tight_layout() # Ensure tight layout so legend/labels are not cut off
 plt.savefig('Contract Matrix.pdf') # Save plot to PDF
-

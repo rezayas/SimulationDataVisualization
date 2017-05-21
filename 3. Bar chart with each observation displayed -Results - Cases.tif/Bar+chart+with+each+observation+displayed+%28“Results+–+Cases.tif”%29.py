@@ -4,7 +4,6 @@
 # In[1]:
 
 # Load required modules ===============================================================
-get_ipython().magic(u'matplotlib inline')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -32,6 +31,17 @@ y_values = [y_axis[2]] * len(best)
 plt.scatter(best.iloc[:,2], y_values, s=500, marker = '|', color = '#C74EFF')
 y_values = [y_axis[3]] * len(best)
 plt.scatter(best.iloc[:,3], y_values, s=500, marker = '|', color = '#C74EFF')
+# Plot mean lines for variables
+plt.scatter(np.mean(best.iloc[:,3]), y_axis[3],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(best.iloc[:,2]), y_axis[2],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(best.iloc[:,1]), y_axis[1],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(best.iloc[:,0]), y_axis[0],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.axvline(x=np.mean(best.iloc[:,3]), color='black', ls=':') # Plot main mean line
+plt.xticks([0,np.mean(best.iloc[:,3]),10000,20000]) # Add mean tick to plot
 plt.yticks(y_axis, ('Elimination 2', 'Elimination 1', 'Base Prime', 'Base'))
 plt.xlim([0,20000])
 plt.title('Assuming No Strain Replacement')
@@ -52,6 +62,16 @@ y_values = [y_axis[2]] * len(best)
 plt.scatter(worst.iloc[:,2], y_values, s=500, marker = '|', color = '#C74EFF')
 y_values = [y_axis[3]] * len(best)
 plt.scatter(worst.iloc[:,3], y_values, s=500, marker = '|', color = '#C74EFF')
+plt.scatter(np.mean(worst.iloc[:,3]), y_axis[3],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(worst.iloc[:,2]), y_axis[2],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(worst.iloc[:,1]), y_axis[1],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(worst.iloc[:,0]), y_axis[0],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.axvline(x=np.mean(worst.iloc[:,3]), color='black', ls=':')
+plt.xticks([0,np.mean(worst.iloc[:,3]),10000,20000])
 plt.yticks(y_axis, ('Prevention 2', 'Prevention 1', 'Base Prime', 'Base'))
 plt.xlim([0,20000])
 plt.title('Assuming Strain Replacement')
@@ -74,6 +94,16 @@ y_values = [y_axis[2]] * len(best)
 plt.scatter(best.iloc[:,2], y_values, s=500, marker = '|', color = '#C74EFF')
 y_values = [y_axis[3]] * len(best)
 plt.scatter(best.iloc[:,3], y_values, s=500, marker = '|', color = '#C74EFF')
+plt.scatter(np.mean(best.iloc[:,3]), y_axis[3],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(best.iloc[:,2]), y_axis[2],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(best.iloc[:,1]), y_axis[1],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(best.iloc[:,0]), y_axis[0],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.axvline(x=np.mean(best.iloc[:,3]), color='black', ls=':')
+plt.xticks([0,np.mean(best.iloc[:,3]),10000,20000])
 plt.yticks(y_axis, []) # remove ticks from this subplot as it will share a y-axis
 plt.xlim([0,20000])
 plt.title('Assuming No Strain Replacement')
@@ -88,10 +118,19 @@ y_values = [y_axis[2]] * len(best)
 plt.scatter(worst.iloc[:,2], y_values, s=500, marker = '|', color = '#C74EFF')
 y_values = [y_axis[3]] * len(best)
 plt.scatter(worst.iloc[:,3], y_values, s=500, marker = '|', color = '#C74EFF')
+plt.scatter(np.mean(worst.iloc[:,3]), y_axis[3],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(worst.iloc[:,2]), y_axis[2],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(worst.iloc[:,1]), y_axis[1],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.scatter(np.mean(worst.iloc[:,0]), y_axis[0],
+            color = '#751698', marker='|', s = 1000, linewidth = 3, zorder = 10)
+plt.axvline(x=np.mean(worst.iloc[:,3]), color='black', ls=':')
+plt.xticks([0,np.mean(worst.iloc[:,3]),10000,20000])
 plt.yticks(y_axis, ('Prevention 2', 'Prevention 1', 'Base Prime', 'Base'))
 plt.xlim([0,20000])
 plt.title('Assuming Strain Replacement')
 plt.xlabel('Annual Number of Meningococcal Cases')
 plt.tight_layout()
 plt.savefig('Results – Cases.pdf')
-
