@@ -1,16 +1,31 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
+
+# Input Files: 1. Model - Vaccines Used  (Worse).csv
+                    # Columns: 'Unnamed: 0', 'With Strain Replacement', 'With Strain Replacement.1',
+                    # 'With Strain Replacement.2', 'No Strain Replacement', 'No Strain Replacement.1', 
+                    # 'No Strain Replacement.2'
+# Summary: 1. Data read in.
+        #  2. Variables/columns and errors extracted from dataset.
+        #  3. y-axis values generated for with strain and without strain replacement datapoints.
+        #  4. Datapoints plotted; error bars plotted.
+        #  5. Plot saved.
+# Output: Stored in folder containing notebook file (PDF format).
+
+
+# In[2]:
 
 # Load required modules ===============================================================
+get_ipython().magic(u'matplotlib inline')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 
 
-# In[2]:
+# In[4]:
 
 # Load data/Read in CSV files ===============================================================
 case_reduction = pd.read_csv('Model - % Case Reduction.csv')
@@ -36,15 +51,15 @@ mpl.style.use('classic') # Use classic MPL layout
 with_strain_y = np.arange(0, 3*len(with_strain), 3)
 no_strain_y = np.arange(1, 3*len(no_strain)+1, 3)
 # Plot scatter plots
-with_strain_replacement = plt.scatter(with_strain,
+with_strain_replacement = plt.scatter(with_strain, 
                                       with_strain_y, c='r', s=50)
-with_no_strain_replacement = plt.scatter(no_strain,
-                                         no_strain_y,
+with_no_strain_replacement = plt.scatter(no_strain, 
+                                         no_strain_y, 
                                          s=50, marker = 's')
 # Plot error bars
-plt.errorbar(no_strain, no_strain_y, xerr=no_strain_err,
+plt.errorbar(no_strain, no_strain_y, xerr=no_strain_err, 
              capsize=0, ls='--')
-plt.errorbar(with_strain, with_strain_y, xerr=with_strain_err,
+plt.errorbar(with_strain, with_strain_y, xerr=with_strain_err, 
              capsize=0, color='red', ls='--')
 plt.yticks((with_strain_y+no_strain_y)/2., ('Base Prime', 'Prevention 1', 'Prevention 2')) # plot y-ticks
 plt.xlim([-5,105])
@@ -52,8 +67,9 @@ plt.xlim([-5,105])
 plt.axvline(x=0, color='black', ls=':')
 plt.axvline(x=100, color='black', ls=':')
 plt.xlabel('% Reduction in Annual Cases')
-plt.legend((with_strain_replacement, with_no_strain_replacement),
+plt.legend((with_strain_replacement, with_no_strain_replacement), 
            ('With Strain Replacement', 'With No Strain Replacement'),
            loc='upper left', bbox_to_anchor=(1, 1), prop={'size':10}, scatterpoints = 1)
 plt.tight_layout() # Ensure tight layout so legend/labels are not cut off
 plt.savefig('Model - % Case Reduction.pdf', bbox_inches="tight") # Save plot to PDF
+
