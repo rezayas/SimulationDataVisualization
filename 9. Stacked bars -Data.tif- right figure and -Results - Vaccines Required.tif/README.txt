@@ -11,3 +11,14 @@
         #  3. Horizontal stacked bar plots plotted side by side and saved (subplots created).
         #  4. Vertical stacked bar plot plotted and saved.
 # Output: Stored in folder containing notebook file (PDF format).
+
+================================================================================
+
+.iloc function:
+
+Target specific rows and columns by their indexes. This may be useful in cases where column names change (although it takes away from the readability of the code). The colon before the indexes is the separator between the row and column indexes. There’s nothing to the left of the colon since we wish to retain all rows.
+
+
+legend and handles:
+
+The handle indexes that are generated are, by default, generated in increasing order of the column indexes, that is, if column ‘Red’ is column 1 and column ‘Blue’ is column 2, then the ‘Red’ is plotted in the legend before ‘Blue’. If you wish to see the original order, you could delete everything to do with handles and the legend will plot the original order.
