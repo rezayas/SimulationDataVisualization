@@ -16,17 +16,17 @@ sys.setdefaultencoding("utf-8")
 # In[2]:
 
 # Load data/Read in CSV files ===============================================================
-df= pd.read_csv('****Data****.csv')
+df = pd.read_csv('**********Data***********.csv')
 
 
-# In[17]:
+# In[3]:
 
 mpl.style.use('classic') # Use classic MPL layout
 fig, ax = plt.subplots(ncols=2, sharey=True) # Create 2 subplots that share a common y-axis
 # Create subplots with y-axis values to be the number of categories
-ax[0].barh(range(0,len(df['AGE']),1), df['MALE'], color='blue',
+ax[0].barh(range(0,len(df['AGE']),1), df.iloc[:,1], color='blue',
           align = 'center')
-ax[1].barh(range(0,len(df['AGE']),1), df['FEMALE'], color='red',
+ax[1].barh(range(0,len(df['AGE']),1), df.iloc[:,2], color='red',
           align = 'center')
 fig.canvas.draw() # manually force figure to draw
 ax[0].invert_xaxis() # invert x-axis so subplot looks like a pyramid when combined with other subplot
@@ -38,6 +38,16 @@ ax_0_labels = ax[0].get_xticklabels() # get original x-tick labels
 ax_1_labels = ax[1].get_xticklabels()
 ax[0].set_xticklabels(ax_0_labels, fontsize = 8) # plot obtained x-tick labels on x-axis but with smaller font
 ax[1].set_xticklabels(ax_1_labels, fontsize = 8)
-plt.suptitle('Population Pyramid\nYale School of Public Health') # Create title in between subplots
+ax[0].set_title('Male', fontsize = 12)
+ax[1].set_title('Female', fontsize = 12)
+plt.suptitle('Population Pyramid', fontsize = 15) # Create title in between subplots
+
+# Create simulated pyramid overlays ===============================================================
+for subplot in range(1,len(df.columns),2):
+    ax[0].scatter(df.iloc[:,subplot],range(0,len(df['AGE']),1), color = '#39FF14', marker = '|', zorder = 10,
+             s = 200, linewidth = 1)
+    ax[1].scatter(df.iloc[:,subplot + 1],range(0,len(df['AGE']),1), color = '#39FF14', marker = '|', zorder = 10,
+             s = 200, linewidth = 1)
+
 plt.tight_layout() # Ensure tight layout so legend/labels are not cut off
 plt.savefig('population_pyramid.pdf') # Save plot to PDF
