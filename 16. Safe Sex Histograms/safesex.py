@@ -74,7 +74,7 @@ for i in range(0, len(sexual.columns), 6):
             plt.xlim(0,30)
             plt.ylim(0,0.8)
             plt.xticks(fontsize = 5)
-            plt.yticks(fontsize = 5)
+            plt.yticks([0.0, 0.2, 0.4, 0.6, 0.8], fontsize = 5)
             plt.title(list(sexual)[i + j], size = 8)
             legend = plt.legend(['$\\alpha$' + ' = ' + str(round(drinking.iloc[0:2, i + j].dropna()[0], 2))
                         , '$\\beta$' + ' = ' + str(round(drinking.iloc[0:2, i + j].dropna()[1], 2))], 
