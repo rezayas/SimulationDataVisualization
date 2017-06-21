@@ -4,6 +4,7 @@
 # In[1]:
 
 # Load required modules ===============================================================
+get_ipython().magic(u'matplotlib inline')
 import numpy as np
 import math
 import pandas as pd
@@ -43,6 +44,11 @@ for i in range(0, len(drinking.columns), 5): # For-loop for creating subplots gr
             plt.xticks(fontsize = 7)
             plt.yticks(fontsize = 5)
             plt.title(list(drinking)[i + j], size = 8)
+            legend = plt.legend(['$\\alpha$' + ' = ' + str(round(drinking.iloc[0:2, i + j].dropna()[0], 2))
+                        , '$\\beta$' + ' = ' + str(round(drinking.iloc[0:2, i + j].dropna()[1], 2))], 
+                       prop={'size':5}, handlelength=0, handletextpad=0)
+            for handle in legend.legendHandles: # Turn legend handles off
+                handle.set_visible(False)
 plt.tight_layout() # Ensure tight layout so legend/labels are not cut off
 plt.savefig('drinking.pdf')
 
@@ -50,7 +56,7 @@ plt.savefig('drinking.pdf')
 # In[4]:
 
 # Plot 'sexual' histograms; modified code from above ===============================================================
-fig = plt.figure() # add plot figure
+fig = plt.figure(figsize=(8, 4)) # add plot figure
 for i in range(0, len(sexual.columns), 6):
     for j in range(6):
         if (i + j < 14):
@@ -65,10 +71,16 @@ for i in range(0, len(sexual.columns), 6):
                 poisson.append(term1 * term2)
             poisson = [0] + poisson
             plt.plot(range(36),poisson, color = 'red', ls = 'steps')
-            plt.xlim(0,35)
-            plt.ylim(0,1)
+            plt.xlim(0,30)
+            plt.ylim(0,0.8)
             plt.xticks(fontsize = 5)
             plt.yticks(fontsize = 5)
             plt.title(list(sexual)[i + j], size = 8)
+            legend = plt.legend(['$\\alpha$' + ' = ' + str(round(drinking.iloc[0:2, i + j].dropna()[0], 2))
+                        , '$\\beta$' + ' = ' + str(round(drinking.iloc[0:2, i + j].dropna()[1], 2))], 
+                       prop={'size':5}, handlelength=0, handletextpad=0)
+            for handle in legend.legendHandles:
+                handle.set_visible(False)
 plt.tight_layout()
 plt.savefig('sexual.pdf')
+
