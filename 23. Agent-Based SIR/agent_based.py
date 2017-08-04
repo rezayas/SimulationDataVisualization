@@ -92,7 +92,7 @@ def plot(_output):
 	for i in range(0, len(model_distribution)):
 	    for j in range(1, len(model_distribution.columns)):
 	        plt.scatter(x_axis[i], model_distribution.iloc[:, j][i], marker = '_', color = '#C74EFF', s = 200) # plot a scatter plot with dataset values
-	        plt.scatter(x_axis[i], data_distribution['%'][i], marker = '_', color = '#C74EFF', s = 200) # plot a scatter plot with dataset values
+	        plt.scatter(x_axis[i], data_distribution['%'][i], marker = '_', color = '#000EFF', s = 200) # plot a scatter plot with dataset values
 	ax.set_xticks(x_axis)
 	ax.set_xticklabels(model_distribution['Age'],  fontsize = 6)
 	plt.yticks(fontsize = 6)
