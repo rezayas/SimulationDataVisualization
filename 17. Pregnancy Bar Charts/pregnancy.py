@@ -18,7 +18,6 @@ outcomes = outcomes[1:] # Delete extra column heads
 unintended = outcomes.iloc[0:10,9:19].dropna() # Extract the unintended pregnancies dataset
 projection_period = outcomes.iloc[0:10,30:38] # Extract the projection_period ataset
 projection_period = projection_period * 100 # Convert raw numbers to percentages
-projection_period
 
 # In[1]:
 # Plot the unintended pregnancies ===============================================================
